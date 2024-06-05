@@ -7,6 +7,12 @@ import (
 	"github.com/osniantonio/fullcycle-auction-go/internal/internal_error"
 )
 
+func NewUserUseCase(userRepository user_entity.UserRepositoryInterface) UserUseCaseInterface {
+	return &UserUseCase{
+		UserRepository: userRepository,
+	}
+}
+
 type UserUseCase struct {
 	UserRepository user_entity.UserRepositoryInterface
 }
@@ -17,6 +23,7 @@ type UserOutputDTO struct {
 }
 
 type UserUseCaseInterface interface {
+	FindUserById(ctx context.Context, id string) (*UserOutputDTO, *internal_error.InternalError)
 }
 
 func (u *UserUseCase) FindUserById(ctx context.Context, id string) (*UserOutputDTO, *internal_error.InternalError) {

@@ -11,7 +11,7 @@ import (
 	"github.com/osniantonio/fullcycle-auction-go/internal/entity/auction_entity"
 )
 
-func (u *auctionController) FindAuctionById(c *gin.Context) {
+func (u *AuctionController) FindAuctionById(c *gin.Context) {
 	auctionId := c.Param("auctionId")
 
 	if err := uuid.Validate(auctionId); err != nil {
@@ -34,7 +34,7 @@ func (u *auctionController) FindAuctionById(c *gin.Context) {
 	c.JSON(http.StatusOK, auctionData)
 }
 
-func (u *auctionController) FindAuctions(c *gin.Context) {
+func (u *AuctionController) FindAuctions(c *gin.Context) {
 	status := c.Query("status")
 	category := c.Query("category")
 	productName := c.Query("productName")
@@ -61,7 +61,7 @@ func (u *auctionController) FindAuctions(c *gin.Context) {
 	c.JSON(http.StatusOK, auctions)
 }
 
-func (u *auctionController) FindWinningBidByAuctionById(c *gin.Context) {
+func (u *AuctionController) FindWinningBidByAuctionById(c *gin.Context) {
 	auctionId := c.Param("auctionId")
 
 	if err := uuid.Validate(auctionId); err != nil {

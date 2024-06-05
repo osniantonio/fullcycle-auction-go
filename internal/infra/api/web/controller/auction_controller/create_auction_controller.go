@@ -10,17 +10,17 @@ import (
 	"github.com/osniantonio/fullcycle-auction-go/internal/usecase/auction_usecase"
 )
 
-type auctionController struct {
-	auctionUseCase auction_usecase.AuctionUseCase
+type AuctionController struct {
+	auctionUseCase auction_usecase.AuctionUseCaseInterface
 }
 
-func NewAuctionController(auctionUseCase auction_usecase.AuctionUseCase) *auctionController {
-	return &auctionController{
+func NewAuctionController(auctionUseCase auction_usecase.AuctionUseCaseInterface) *AuctionController {
+	return &AuctionController{
 		auctionUseCase: auctionUseCase,
 	}
 }
 
-func (u *auctionController) CreateAuciont(c *gin.Context) {
+func (u *AuctionController) CreateAucion(c *gin.Context) {
 	var auctionInputDTO auction_usecase.AuctionInputDTO
 
 	if err := c.ShouldBindJSON(&auctionInputDTO); err != nil {
