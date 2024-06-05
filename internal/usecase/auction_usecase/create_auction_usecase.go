@@ -32,8 +32,8 @@ type WinningInfoOutputDTO struct {
 	Bid     *bid_usecase.BidOutputDTO `json:"bid,omitempty"`
 }
 
-type ProductCondition int64
-type AuctionStatus int64
+type ProductCondition int
+type AuctionStatus int
 
 type AuctionUseCase struct {
 	auctionRepositoryInterface auction_entity.AuctionRepositoryInterface

@@ -21,7 +21,7 @@ func NewUserController(userUseCase user_usecase.UserUseCase) *userController {
 }
 
 func (u *userController) FindUserById(c *gin.Context) {
-	userId := c.Query("userId")
+	userId := c.Param("userId")
 
 	if err := uuid.Validate(userId); err != nil {
 		errRest := rest_err.NewBadRequestError("Invalid fields", rest_err.Causes{
