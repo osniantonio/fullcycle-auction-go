@@ -6,7 +6,7 @@ import (
 	"github.com/osniantonio/fullcycle-auction-go/internal/internal_error"
 )
 
-func (bu *BidUseCase) FindByAuctionId(ctx context.Context, auctionId string) ([]BidOutputDTO, *internal_error.InternalError) {
+func (bu *BidUseCase) FindBidByAuctionId(ctx context.Context, auctionId string) ([]BidOutputDTO, *internal_error.InternalError) {
 	bidList, err := bu.BidRepository.FindByAuctionId(ctx, auctionId)
 	if err != nil {
 		return nil, err
